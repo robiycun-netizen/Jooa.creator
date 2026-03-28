@@ -67,11 +67,69 @@
             padding: 30px;
             border-radius: 15px;
         }
+/* 📱 핸드폰 화면용 심폐소생술! */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column !important; /* 위아래로 줄 세우기 */
+  }
 
+  .sidebar {
+    width: 100% !important; /* 가로로 꽉 채우기 */
+    min-width: 100% !important;
+    height: auto !important;
+    border-right: none !important;
+    border-bottom: 2px solid #eee !important; /* 아래줄로 변경 */
+    padding: 20px !important;
+  }
+
+  .main-content {
+    width: 100% !important; /* 내용도 가로로 꽉 채우기 */
+    padding: 20px !important;
+  }
+}
+        @media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: -400px; /* 처음엔 천장 위로 숨기기 */
+    left: 0;
+    width: 100% !important;
+    height: auto !important;
+    background: white;
+    z-index: 999;
+    transition: 0.5s; /* 슥~ 내려오는 속도 */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 60px 20px 20px 20px !important;
+  }
+
+  .sidebar.active {
+    top: 0; /* 버튼 누르면 내려오기 */
+  }
+
+  .main-content {
+    width: 100% !important;
+    padding-top: 80px !important;
+  }
+
+  #toggle-btn {
+    display: block !important;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 1000;
+    padding: 8px 15px;
+    background: #ffcc00;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+}
+#toggle-btn { display: none; } /* 컴퓨터에선 안 보임 */
     </style>
 </head>
 <body>
-
+<button id="toggle-btn">∨</button>
     <div class="sidebar">
         <div class="profile-img-container">
             <img src="jooa_profile.png" alt="JOOA Profile">
@@ -107,6 +165,16 @@
         </div>
 
     </div>
+<script>
+  const btn = document.getElementById('toggle-btn');
+  const sidebar = document.querySelector('.sidebar');
 
+  if (btn && sidebar) {
+    btn.addEventListener('click', () => {
+      sidebar.classList.toggle('active'); // 메뉴 내리고 올리기!
+      btn.innerText = sidebar.classList.contains('active') ? '∧' : '∨';
+    });
+  }
+</script>
 </body>
 </html>
