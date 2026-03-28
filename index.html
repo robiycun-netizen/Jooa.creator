@@ -197,7 +197,26 @@
 
         .game-item.open .game-desc { display: block; }
         .game-item.open h4 .toggle-icon { transform: rotate(90deg); } /* > 아이콘 돌리기 */
+/* 📱 핸드폰 화면용 심폐소생술! */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column !important; /* 위아래로 줄 세우기 */
+  }
 
+  .sidebar {
+    width: 100% !important; /* 가로로 꽉 채우기 */
+    min-width: 100% !important;
+    height: auto !important;
+    border-right: none !important;
+    border-bottom: 2px solid #eee !important; /* 아래줄로 변경 */
+    padding: 20px !important;
+  }
+
+  .main-content {
+    width: 100% !important; /* 내용도 가로로 꽉 채우기 */
+    padding: 20px !important;
+  }
+}
     </style>
 </head>
 <body>
