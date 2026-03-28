@@ -367,19 +367,17 @@
         </div>
 
     </div>
+<script>
+  const btn = document.getElementById('toggle-btn');
+  const sidebar = document.querySelector('.sidebar');
 
-#toggle-btn {
-    display: block !important;
-    position: fixed;
-    top: 15px;
-    right: 15px;
-    z-index: 9999 !important; /* 👈 숫자를 아주 크게 해서 맨 앞으로 소환! */
-    padding: 10px 15px;
-    background: var(--accent-color);
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-}
+  if (btn && sidebar) {
+    btn.addEventListener('click', () => {
+      sidebar.classList.toggle('active'); // 메뉴 내리고 올리기!
+      btn.innerText = sidebar.classList.contains('active') ? '∧' : '∨';
+    });
+  }
+</script>
+    
 </body>
 </html>
