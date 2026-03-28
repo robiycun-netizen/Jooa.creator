@@ -37,10 +37,53 @@
             border-radius: 15px;
             border-left: 5px solid var(--accent-color);
         }
+        /* 📱 핸드폰 화면용 심폐소생술! */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column !important; /* 위아래로 줄 세우기 */
+  }
+
+  .sidebar {
+    width: 100% !important; /* 가로로 꽉 채우기 */
+    min-width: 100% !important;
+    height: auto !important;
+    border-right: none !important;
+    border-bottom: 2px solid #eee !important; /* 아래줄로 변경 */
+    padding: 20px !important;
+  }
+
+  .main-content {
+    width: 100% !important; /* 내용도 가로로 꽉 채우기 */
+    padding: 20px !important;
+  }
+}
+        #menu-toggle {
+  display: none; /* 컴퓨터에선 안 보임 */
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  font-size: 24px;
+  background: #ffcc00;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  #menu-toggle { display: block; } /* 핸드폰에서만 등장! */
+  .sidebar {
+    display: none; /* 처음엔 닫아두기 */
+  }
+  .sidebar.open {
+    display: block; /* 버튼 누르면 열리기 */
+  }
+}
     </style>
 </head>
 <body>
-
+<button id="menu-toggle">☰</button>
     <div class="sidebar">
         <div class="profile-img-container">
             <img src="jooa_profile.png" alt="JOOA Profile">
@@ -70,6 +113,13 @@
         </div>
 
     </div>
-
+<script>
+  const btn = document.getElementById('menu-toggle');
+  const sidebar = document.querySelector('.sidebar');
+  
+  btn.addEventListener('click', () => {
+    sidebar.classList.toggle('open'); // 열렸다 닫혔다!
+  });
+</script>
 </body>
 </html>
