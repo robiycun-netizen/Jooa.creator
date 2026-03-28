@@ -368,19 +368,18 @@
 
     </div>
 
-    <script>
-        function toggleGame(itemId) {
-            const item = document.getElementById(itemId);
-            item.classList.toggle('open');
-        }
-    </script>
-<script>
-  const btn = document.getElementById('menu-toggle');
-  const sidebar = document.querySelector('.sidebar');
-  
-  btn.addEventListener('click', () => {
-    sidebar.classList.toggle('open'); // 열렸다 닫혔다!
-  });
-</script>
+#toggle-btn {
+    display: block !important;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 9999 !important; /* 👈 숫자를 아주 크게 해서 맨 앞으로 소환! */
+    padding: 10px 15px;
+    background: var(--accent-color);
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
 </body>
 </html>
