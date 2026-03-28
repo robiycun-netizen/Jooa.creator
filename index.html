@@ -217,10 +217,49 @@
     padding: 20px !important;
   }
 }
+        @media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: -400px; /* 처음엔 천장 위로 숨기기 */
+    left: 0;
+    width: 100% !important;
+    height: auto !important;
+    background: white;
+    z-index: 999;
+    transition: 0.5s; /* 슥~ 내려오는 속도 */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 60px 20px 20px 20px !important;
+  }
+
+  .sidebar.active {
+    top: 0; /* 버튼 누르면 내려오기 */
+  }
+
+  .main-content {
+    width: 100% !important;
+    padding-top: 80px !important;
+  }
+
+  #toggle-btn {
+    display: block !important;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 1000;
+    padding: 8px 15px;
+    background: #ffcc00;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+}
+#toggle-btn { display: none; } /* 컴퓨터에선 안 보임 */
     </style>
 </head>
 <body>
-
+<button id="toggle-btn">∨</button>
     <div class="sidebar">
         <div class="profile-img-container">
             <img src="jooa_profile.png" alt="JOOA Profile">
@@ -324,7 +363,7 @@
         </div>
 
         <div style="text-align: center; color: var(--text-secondary); font-size: 0.8rem; padding: 20px 0;">
-            © 2024 JOOA.creator. 엄마 몰래 만든 아지트.
+            © 2026 JOOA.creator. 엄마 몰래 만든 아지트.
         </div>
 
     </div>
@@ -335,6 +374,14 @@
             item.classList.toggle('open');
         }
     </script>
+const btn = document.getElementById('toggle-btn');
+  const sidebar = document.querySelector('.sidebar');
 
+  if (btn && sidebar) {
+    btn.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
+      btn.innerText = sidebar.classList.contains('active') ? '∧' : '∨';
+    });
+  }
 </body>
 </html>
