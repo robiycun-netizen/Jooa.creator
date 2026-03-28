@@ -2,7 +2,8 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Jooa's homepage (ㅋㅋ)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOOA의 공식 아지트 낼름 👅</title>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     
@@ -18,7 +19,6 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-primary);
-            /* 🍔 프리텐다드 폰트 기본 적용 */
             font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
             margin: 0;
             display: flex;
@@ -38,7 +38,6 @@
             z-index: 10;
         }
 
-        /* 🍩 주아의 마스코트 이미지! ⭐⭐⭐ */
         .profile-img-container {
             width: 150px;
             height: 150px;
@@ -56,7 +55,6 @@
         }
 
         .profile-name {
-            /* 🥤 이름 제목에 쌈@뽕 폰트 Montserrat 적용! */
             font-family: 'Montserrat', sans-serif;
             font-size: 1.8rem;
             font-weight: 800;
@@ -65,146 +63,259 @@
         }
 
         .profile-id {
-            font-size: 1rem;
             color: var(--text-secondary);
-            margin-bottom: 35px;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
         }
 
-        .menu-item {
+        .nav-menu {
             width: 100%;
-            padding: 15px;
-            margin-bottom: 12px;
-            background-color: rgba(0,0,0,0.03);
-            border: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            background-color: #f8f9fa;
             border-radius: 12px;
-            text-align: left;
-            font-size: 1.1rem;
+            text-decoration: none;
+            color: var(--text-primary);
             font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.2s, color 0.2s;
+            transition: all 0.2s ease;
         }
 
-        .menu-item:hover {
+        .nav-item:hover {
             background-color: var(--accent-color);
-            color: #111;
+            transform: translateX(5px);
         }
 
-        /* --- 🥤 오른쪽: 상세 내용 (스크롤) --- */
+        .nav-item.active {
+            background-color: var(--accent-color);
+        }
+
+        /* --- 🥤 오른쪽: 메인 콘텐츠 영역 (스크롤 가능) --- */
         .main-content {
             flex: 1;
-            padding: 60px 80px;
-            overflow-y: auto;
+            padding: 60px;
+            overflow-y: auto; /* 내용 많으면 스크롤! */
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
         }
 
-        /* 상세 내용 카드 디자인 */
-        .detail-card {
+        .card {
             background-color: var(--card-bg);
             border-radius: 20px;
             padding: 40px;
-            margin-bottom: 35px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.03);
         }
 
-        .card-title {
-            font-size: 1.5rem;
-            font-weight: 700;
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
             margin-bottom: 25px;
-            color: var(--text-primary);
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 15px;
         }
 
-        .info-grid {
-            display: flex;
-            gap: 45px;
+        .card-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        /* Profile Section */
+        .profile-info {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
         }
 
         .info-item {
-            text-align: left;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
         }
 
-        .label {
-            font-size: 0.8rem;
+        .info-label {
             color: var(--text-secondary);
+            font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .info-value {
             font-weight: 700;
+            font-size: 1.1rem;
         }
 
-        .value {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-top: 10px;
-            color: var(--text-primary);
-        }
-
-        /* 미션 섹션 (진지함 포인트) */
+        /* Mission Section */
         .mission-text {
             color: var(--text-secondary);
-            font-size: 1.25rem;
             line-height: 1.8;
-            font-weight: 500;
+            font-size: 1rem;
+            margin: 0;
         }
 
-        /* 🍩 도넛이 추천하는 부드러운 커서 효과 */
-        .cursor-light {
-            position: fixed;
-            width: 300px; height: 300px;
-            background: radial-gradient(circle, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0) 70%);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 999;
-            transform: translate(-50%, -50%);
+        /* Languages Section (⭐예시처럼 표기!) */
+        .lang-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
+
+        .lang-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .lang-flag { font-size: 1.5rem; }
+        .lang-name { font-weight: 700; width: 80px; }
+        .lang-bar-container { flex: 1; height: 10px; background-color: #eee; border-radius: 5px; overflow: hidden; }
+        .lang-bar { height: 100%; background-color: #3498db; border-radius: 5px; }
+        .lang-level { color: var(--text-secondary); font-size: 0.9rem; width: 120px; text-align: right; }
+
+        /* Hobbies Section (⭐Game > Roblox 기능!) */
+        .hobbies-section h2 { font-size: 1.8rem; margin-top: 0; }
+        
+        .hobby-category { margin-bottom: 25px; }
+        .hobby-category h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 10px; }
+        .hobby-category p { color: var(--text-secondary); line-height: 1.6; margin: 0 0 15px 0; }
+
+        .game-item { margin-left: 20px; margin-bottom: 15px; border-left: 3px solid #eee; padding-left: 15px; }
+        .game-item h4 { font-size: 1.1rem; font-weight: 600; margin: 0 0 5px 0; cursor: pointer; display: flex; align-items: center; gap: 5px; }
+        .game-item h4:hover { color: #3498db; }
+        .game-item h4 .toggle-icon { font-size: 0.8rem; transition: transform 0.2s; }
+        .game-desc { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5; margin: 0; display: none; } /* 처음엔 숨김 */
+
+        .game-item.open .game-desc { display: block; }
+        .game-item.open h4 .toggle-icon { transform: rotate(90deg); } /* > 아이콘 돌리기 */
+
     </style>
 </head>
 <body>
 
-    <div class="cursor-light" id="cursor"></div>
-
     <div class="sidebar">
         <div class="profile-img-container">
-            <img src="jooa_profile.png" alt="JOOA">
+            <img src="jooa_profile.png" alt="JOOA Profile">
         </div>
         <h1 class="profile-name">JOOA</h1>
-        <div class="profile-id">Yeo Jooa (ㅋㅋ)</div>
-        <button class="menu-item" onclick="alert('주아의 이야기를 준비 중이야!')">About</button>
-        <button class="menu-item" onclick="alert('멋진 영상을 담아볼까?')">Channel</button>
+        <div class="profile-id">Yeo Jooa (낼름)</div>
+
+        <div class="nav-menu">
+            <a href="index.html" class="nav-item active">🏠 Home</a>
+            <a href="about.html" class="nav-item">👤 About</a>
+            <a href="channel.html" class="nav-item">📺 Channel</a>
+        </div>
     </div>
 
     <div class="main-content">
-        <div class="detail-card">
-            <h2 class="card-title">Profile</h2>
-            <div class="info-grid">
+
+        <div class="card">
+            <div class="card-header">
+                <h2>Profile</h2>
+            </div>
+            <div class="profile-info">
                 <div class="info-item">
-                    <div class="label">Name</div>
-                    <div class="value">여주아</div>
+                    <div class="info-label">Name</div>
+                    <div class="info-value">여주아</div>
                 </div>
                 <div class="info-item">
-                    <div class="label">Age</div>
-                    <div class="value">2015년생</div>
+                    <div class="info-label">Age</div>
+                    <div class="info-value">2015년생</div>
                 </div>
                 <div class="info-item">
-                    <div class="label">Identity</div>
-                    <div class="value">YouTuber</div>
+                    <div class="info-label">Identity</div>
+                    <div class="info-value">YouTuber</div>
                 </div>
             </div>
         </div>
 
-        <div class="detail-card">
-            <h2 class="card-title">Mission</h2>
+        <div class="card">
+            <div class="card-header">
+                <h2>Mission</h2>
+            </div>
             <p class="mission-text">
-                안녕하세요. 만 11세 크리에이터 여주아입니다. <br>
-                저는 단순히 영상을 만드는 것을 넘어, <br>
-                콘텐츠의 본질을 파악하고 10만 유튜버가 되는것이 꿈입니다!
+                안녕하세요, 반 11세 크리에이터 여주아입니다.<br>
+                저는 단순히 영상을 만드는 것이 아니라, 시청자들과 소통하며<br>
+                콘텐츠의 본질을 파악하고 성장하는 유튜버가 되고 싶습니다!
             </p>
         </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2>Languages</h2>
+            </div>
+            <div class="lang-list">
+                <div class="lang-item">
+                    <span class="lang-flag">🇰🇷</span>
+                    <span class="lang-name">한국어</span>
+                    <div class="lang-bar-container"><div class="lang-bar" style="width: 99%;"></div></div>
+                    <span class="lang-level">99% (한국인이여서)</span>
+                </div>
+                <div class="lang-item">
+                    <span class="lang-flag">🇺🇸</span>
+                    <span class="lang-name">영어</span>
+                    <div class="lang-bar-container"><div class="lang-bar" style="width: 50%;"></div></div>
+                    <span class="lang-level">50% (사업 및 배우는중)</span>
+                </div>
+                <div class="lang-item">
+                    <span class="lang-flag">🇨🇳</span>
+                    <span class="lang-name">중국어</span>
+                    <div class="lang-bar-container"><div class="lang-bar" style="width: 1%;"></div></div>
+                    <span class="lang-level">1% (선생님 ㅊㅇ)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card hobbies-section">
+            <div class="card-header">
+                <h2>Hobbies</h2>
+            </div>
+            
+            <div class="hobby-category">
+                <h3>🎮 Game</h3>
+                <p>게임은 제 창의력의 원천입니다! 여러 세계를 탐험하며 즐거움을 찾습니다.</p>
+                
+                <div class="game-item" id="roblox-item">
+                    <h4 onclick="toggleGame('roblox-item')"><span class="toggle-icon">▶</span> Roblox</h4>
+                    <p class="game-desc">4000만개가 넘는 여러가지 게임 (주인장은 로블록스의 FPS게임 라이벌을 좋아한다)</p>
+                </div>
+                <div class="game-item" id="minecraft-item">
+                    <h4 onclick="toggleGame('minecraft-item')"><span class="toggle-icon">▶</span> Minecraft</h4>
+                    <p class="game-desc">상상력이 풍부해진다 (특히 친구들과 건축배틀할때 재밌다)</p>
+                </div>
+                <div class="game-item" id="apex-item">
+                    <h4 onclick="toggleGame('apex-item')"><span class="toggle-icon">▶</span> Apex Legend</h4>
+                    <p class="game-desc">FPS 게임이고 주인장은 그런 종류의 게임을 많이한다</p>
+                </div>
+            </div>
+
+            <div class="hobby-category">
+                <h3>⚽ Football</h3>
+                <p>축구는 11명으로 구성된 두 팀이 전·후반 각 45분 동안 발을 사용해 상대 골대에 공을 넣어 득점을 겨루는 세계에서 가장 인기 있는 구기 종목입니다. 손과 팔을 사용할 수 없는(골키퍼 제외) 규칙 속에 팀워크와 개인 기술, 강인한 체력이 중요하며, 월드컵과 프로리그가 활발히 운영돼고 주인장은 수비수다</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; color: var(--text-secondary); font-size: 0.8rem; padding: 20px 0;">
+            © 2024 JOOA.creator. 엄마 몰래 만든 아지트.
+        </div>
+
     </div>
 
     <script>
-        const cursor = document.getElementById('cursor');
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
+        function toggleGame(itemId) {
+            const item = document.getElementById(itemId);
+            item.classList.toggle('open');
+        }
     </script>
+
 </body>
 </html>

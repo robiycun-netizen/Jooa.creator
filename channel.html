@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Channel JOOA - 로비컨으로 놀러와!</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* index.html과 스타일을 똑같이 맞춰줘서 깔끔하게! */
+        :root { --bg-color: #f4f7f6; --card-bg: #ffffff; --text-primary: #111111; --text-secondary: #666666; --accent-color: #ffd700; }
+        body { background-color: var(--bg-color); color: var(--text-primary); font-family: 'Pretendard', sans-serif; margin: 0; display: flex; height: 100vh; overflow: hidden; }
+        .sidebar { width: 280px; background-color: var(--card-bg); padding: 40px; display: flex; flex-direction: column; align-items: center; border-right: 1px solid rgba(0,0,0,0.05); z-index: 10; }
+        .profile-img-container { width: 150px; height: 150px; border-radius: 50%; overflow: hidden; background-color: #eee; margin-bottom: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .profile-img-container img { width: 100%; height: 100%; object-fit: cover; }
+        .profile-name { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; font-weight: 800; margin: 0; text-transform: uppercase; }
+        .profile-id { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 30px; }
+        .nav-menu { width: 100%; display: flex; flex-direction: column; gap: 10px; }
+        .nav-item { display: flex; align-items: center; padding: 12px 20px; background-color: #f8f9fa; border-radius: 12px; text-decoration: none; color: var(--text-primary); font-weight: 600; transition: all 0.2s ease; }
+        .nav-item:hover { background-color: var(--accent-color); transform: translateX(5px); }
+        .main-content { flex: 1; padding: 60px; overflow-y: auto; display: flex; flex-direction: column; gap: 30px; }
+        .card { background-color: var(--card-bg); border-radius: 20px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+        .card-header { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; border-bottom: 2px solid #f0f0f0; padding-bottom: 15px; }
+        .card-header h2 { margin: 0; font-size: 1.5rem; font-weight: 700; }
+        
+        /* ⭐활성화! */
+        .nav-item.active { background-color: var(--accent-color); }
+
+        /* ⭐로비컨 유튜브 링크 스타일 */
+        .youtube-link-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .youtube-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background-color: #ff0000; /* 유튜브 빨간색! */
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+            border-radius: 50px;
+            margin-bottom: 30px;
+            transition: transform 0.2s;
+            box-shadow: 0 5px 15px rgba(255,0,0,0.3);
+        }
+
+        .youtube-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* ⭐Description 스타일 */
+        .channel-desc {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin: 0;
+            white-space: pre-wrap; /* 줄바꿈 유지! */
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="profile-img-container">
+            <img src="jooa_profile.png" alt="JOOA Profile">
+        </div>
+        <h1 class="profile-name">JOOA</h1>
+        <div class="profile-id">Yeo Jooa (낼름)</div>
+
+        <div class="nav-menu">
+            <a href="index.html" class="nav-item">🏠 Home</a>
+            <a href="about.html" class="nav-item">👤 About</a>
+            <a href="channel.html" class="nav-item active">📺 Channel</a> </div>
+    </div>
+
+    <div class="main-content">
+
+        <div class="card youtube-link-card">
+            <div class="card-header" style="width: 100%; justify-content: center; border: none;">
+                <h2>📺 주아의 유튜브 채널</h2>
+            </div>
+            
+            <a href="https://www.youtube.com/@%EB%A1%9C%EB%B9%84%EC%BB%A8" target="_blank" class="youtube-btn">
+                <span>로비컨</span> ▶
+            </a>
+
+            <p class="channel-desc">신규 잼민이 유튜버😎
+엄마 몰래 유튜브중...
+
+1.0k+ subscriber / Roblox youtuber</p>
+        </div>
+
+        <div style="text-align: center; color: var(--text-secondary); font-size: 0.8rem; padding: 20px 0;">
+            © 2024 JOOA.creator. 엄마 몰래 만든 아지트.
+        </div>
+
+    </div>
+
+</body>
+</html>
